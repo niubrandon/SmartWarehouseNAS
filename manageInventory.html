@@ -1,0 +1,92 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset=utf-8>
+    <title>Smart Warehouse - Add Inventory</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <link rel="stylesheet" href="bootswatch.min.css" media="screen">
+    <link rel="stylesheet" href="SmartWarehouse.css">
+    <script src=nebPay.js></script>
+    <script src=nebulas.js></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="content">
+        <div id=inventory>
+            <h1>Manage Inventory</h1>
+            <h4 id="manage-text">Add your inventory here.</h4>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Part Number:</span>
+                </div>
+                <input type=text id=new_request_part_number class="form-control" value="P0002"></input>
+            </div>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Part Name:</span>
+                </div>
+                <input type=text id=new_request_part_name class="form-control" value="Tires"></input>
+            </div>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Quantity:</span>
+                </div>
+                <input type=number min=0 step=1 id=new_request_qty class="form-control" value="100" oninput="validity.valid||(value='');"></input>
+            </div>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Supplier:</span>
+                </div>
+                <input type=text id=new_request_supplier class="form-control" value="SHKU"></input>
+            </div>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">Physical Location:</span>
+                </div>
+                <input type=text id=new_request_location class="form-control" value="A1C"></input>
+            </div><br><br>
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                <label class="btn btn-secondary active">
+                    <input type="radio" name="movement" id="inbound" autocomplete="off" value="inbound" checked>Inbound
+                </label>
+                <label class="btn btn-secondary">
+                    <input type="radio" name="movement" id="outbound" autocomplete="off" value="outbound">Outbound
+                </label>
+            </div>
+            <br><br>
+            <div class="input-group">
+                <button id=execute_inventory class="btn btn-primary">Execute </button>
+            </div>
+            <p id="adding_msg" style="display:none">Adding transaction...</p>
+        </div>
+
+        <div id=inventory-list>
+            <h1>Inventory List</h1>    
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Part Number</th>
+                        <th scope="col">Part Name</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Supplier</th>
+                        <th scope="col">Physical Location</th>
+                        <th scope="col">Transaction Time</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-body">
+        
+                    </tbody>
+                    </table>
+        
+            </div>
+    </div>
+
+    <script src=SmartWarehouse.js></script>
+    
+    <script src=manageInventory.js></script>
+    <script src=search.js></script>
+</body>
+</html>
