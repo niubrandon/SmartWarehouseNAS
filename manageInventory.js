@@ -16,7 +16,7 @@ $('input[name=movement]').change(function() {
 });
 
 $('#execute_inventory').click(function() {
-    $('#adding_msg').text("Adding transaction...").show();
+    $('#adding_msg').text("Adding transaction. Please refresh the page to view result.").show();
 
     var part_number = $('#new_request_part_number').val();
     var part_name = $('#new_request_part_name').val();
